@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
 
 #define TERM "alacritty"
 
@@ -50,7 +51,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -67,22 +68,21 @@ static const char *termcmd[]  = { TERM, NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,						XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY,						XK_o,	   incnmaster,     {.i = +1 } },
+	{ MODKEY|ShiftMask,				XK_o,	   incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
+	{ MODKEY,                       XK_s,	   zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
@@ -96,6 +96,22 @@ static Key keys[] = {
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +5 } },
 	{ MODKEY|ShiftMask,             XK_minus,  setgaps,        {.i = GAP_RESET } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = GAP_TOGGLE} },
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox") },
+	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("telegram-desktop") },
+	{ MODKEY,                       XK_p,      spawn,          SHCMD("$HOME/.config/scripts/dmenupass") },
+	{ MODKEY|ControlMask,           XK_p,      spawn,          SHCMD("$HOME/.config/scripts/dmenupower") },
+	{ MODKEY,                       XK_Print,  spawn,          SHCMD("$HOME/.config/scripts/maimpick") },
+	{ MODKEY,                       XK_n,      spawn,          SHCMD("$HOME/.config/scripts/dmenuiwd") },
+	{ MODKEY,                       XK_c,      spawn,          SHCMD("$HOME/.config/scripts/dmenucalc") },
+	{ 0, XF86XK_MonBrightnessUp,    spawn,     SHCMD("xbacklight -inc 5") },
+	{ 0, XF86XK_MonBrightnessDown,  spawn,     SHCMD("xbacklight -dec 5") },
+	{ 0, XF86XK_AudioNext,          spawn,     SHCMD("mpc next") },
+	{ 0, XF86XK_AudioPrev,          spawn,     SHCMD("mpc prev") },
+	{ 0, XF86XK_AudioPlay,          spawn,     SHCMD("mpc toggle") },
+	{ 0, XF86XK_AudioStop,          spawn,     SHCMD("mpc stop") },
+	{ 0, XF86XK_AudioRaiseVolume,   spawn,     SHCMD("pulsemixer --change-volume +10") },
+	{ 0, XF86XK_AudioLowerVolume,   spawn,     SHCMD("pulsemixer --change-volume -10") },
+	{ 0, XF86XK_AudioMute,          spawn,     SHCMD("pulsemixer --toggle-mute") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -105,7 +121,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ControlMask,           XK_q,      quit,           {0} },
 };
 
 /* button definitions */
