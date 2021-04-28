@@ -106,6 +106,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Print,  spawn,          SHCMD("$HOME/.config/scripts/maimpick") },
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("$HOME/.config/scripts/dmenuiwd") },
 	{ MODKEY,                       XK_c,      spawn,          SHCMD("$HOME/.config/scripts/dmenucalc") },
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD(TERM " -e ncmpcpp -q") },
 	{ 0, XF86XK_MonBrightnessUp,    spawn,     SHCMD("xbacklight -inc 5") },
 	{ 0, XF86XK_MonBrightnessDown,  spawn,     SHCMD("xbacklight -dec 5") },
 	{ 0, XF86XK_AudioNext,          spawn,     SHCMD("mpc next") },
