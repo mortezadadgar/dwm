@@ -113,9 +113,9 @@ static Key keys[] = {
 	{ 0, XF86XK_AudioPrev,          spawn,     SHCMD("mpc prev") },
 	{ 0, XF86XK_AudioPlay,          spawn,     SHCMD("mpc toggle") },
 	{ 0, XF86XK_AudioStop,          spawn,     SHCMD("mpc stop") },
-	{ 0, XF86XK_AudioRaiseVolume,   spawn,     SHCMD("pulsemixer --change-volume +10") },
-	{ 0, XF86XK_AudioLowerVolume,   spawn,     SHCMD("pulsemixer --change-volume -10") },
-	{ 0, XF86XK_AudioMute,          spawn,     SHCMD("pulsemixer --toggle-mute") },
+	{ 0, XF86XK_AudioRaiseVolume,	spawn,	   SHCMD("pamixer -i 3; kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioLowerVolume,	spawn,	   SHCMD("pamixer -d 3; kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioMute,		    spawn,	   SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
