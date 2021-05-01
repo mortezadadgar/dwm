@@ -103,7 +103,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("telegram-desktop") },
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("dmenupass") },
 	{ MODKEY|ControlMask,           XK_p,      spawn,          SHCMD("dmenupower") },
-	{ MODKEY,                       XK_Print,  spawn,          SHCMD("maimpick") },
+	{ MODKEY,                       XK_Print,  spawn,          SHCMD("dmenumaim") },
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("dmenuiwd") },
 	{ MODKEY,                       XK_c,      spawn,          SHCMD("dmenucalc") },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD(TERM " -e ncmpcpp -q") },
