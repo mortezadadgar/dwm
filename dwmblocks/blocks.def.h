@@ -5,7 +5,7 @@ static const Block blocks[] = {
 	{""               ,       "statusbar -t",            8,             0,       },
 	{""               ,       "statusbar -b",            8,             0,       },
 	{""               ,       "statusbar -w",            3,             0,       },
-	{"^c#61AFEF^ ^d^",       "date '+%b %d - %H:%M'",   60,             0,       },
+	{"^c#61AFEF^󰃭 ^d^",       "date '+%b %d - %H:%M'",   60,             0,       },
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.
