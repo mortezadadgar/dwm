@@ -14,19 +14,20 @@ static const int focusonwheel       = 0;
 static const char *fonts[]          = { "RobotoMono Nerd Font:size=10", "Material Design Icons:size=10" };
 static const char dmenufont[]       = "RobotoMono Nerd Font:size=10";
 static const char col_gray1[]       = "#282c34";
-static const char col_gray2[]       = "#64656A";
-static const char col_gray3[]       = "#dfdfdf";
-static const char col_gray4[]       = "#282c34";
-static const char col_cyan[]        = "#61AFEF";
+static const char col_gray2[]       = "#64656A"; /* gray */
+static const char col_gray3[]       = "#dfdfdf"; /* white */
+static const char col_gray4[]       = "#1d2026"; /* dark bkg */
+static const char col_gray5[]       = "#8a8b91"; /* lighter gray */
+static const char col_blue[]        = "#61AFEF";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-	[SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]  = { col_gray4, col_cyan,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-    [SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-    [SchemeInfoSel]  = { col_gray4, col_cyan,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-    [SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+	[SchemeSel]  = { col_gray1, col_blue,  col_gray5  },
+	[SchemeStatus]  = { col_gray3, col_gray4,  "#000000"  }, // Statusbar right
+	[SchemeTagsSel]  = { col_blue, col_gray4,  "#000000"  }, // Tagbar left selected
+    [SchemeTagsNorm]  = { col_gray3, col_gray4,  "#000000"  }, // Tagbar left unselected
+    [SchemeInfoSel]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  selected
+    [SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected
 };
 
 /* tagging */
