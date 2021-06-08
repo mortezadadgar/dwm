@@ -39,11 +39,12 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/*  class               instance  title  tags  mask  switchtotag    isfloating  monitor  */  
-	{   "firefox",          NULL,     NULL,  1   << 1,   1,             0,          -1  },
-	{   "TelegramDesktop",  NULL,     NULL,  1   << 2,   1,             0,          -1  },
-	{   "mpv",              NULL,     NULL,  1   << 3,   1,             0,          -1  },
-	{   "Zathura",          NULL,     NULL,  1   << 4,   1,             0,          -1  },
-	{   "qBittorrent",      NULL,     NULL,  1   << 5,   1,             1,          -1  },
+	{   "firefox",          NULL,     NULL,  	  1   << 1,   1,             0,          -1  },
+	{   "TelegramDesktop",  NULL,     NULL,  	  1   << 2,   1,             0,          -1  },
+	{   "mpv",              NULL,     NULL,  	  1   << 3,   1,             0,          -1  },
+	{   "Zathura",          NULL,     NULL,  	  1   << 4,   1,             0,          -1  },
+	{   "qBittorrent",      NULL,     NULL,  	  1   << 5,   1,             1,          -1  },
+	{   "Alacritty",        NULL,     "ncmpcpp",  1   << 6,   1,             1,          -1  },
 };
 
 /* layout(s) */
@@ -110,7 +111,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Print,  spawn,          SHCMD("dmenumaim") },
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("dmenuiwd") },
 	{ MODKEY,                       XK_c,      spawn,          SHCMD("dmenucalc") },
-	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD(TERM " -e ncmpcpp -q") },
+	{ MODKEY,                       XK_e,      spawn,          SHCMD("dmenukill") },
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("open-ncmpcpp") },
 	{ 0, XF86XK_MonBrightnessUp,    spawn,     SHCMD("xbacklight -inc 5") },
 	{ 0, XF86XK_MonBrightnessDown,  spawn,     SHCMD("xbacklight -dec 5") },
 	{ 0, XF86XK_AudioNext,          spawn,     SHCMD("mpc next") },
