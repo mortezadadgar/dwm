@@ -113,6 +113,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_c,      spawn,          SHCMD("dmenucalc") },
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("dmenukill") },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("open-ncmpcpp") },
+	{ MODKEY|ControlMask,           XK_q,      spawn,          SHCMD("dwmout")} ,
 	{ 0, XF86XK_MonBrightnessUp,    spawn,     SHCMD("xbacklight -inc 5") },
 	{ 0, XF86XK_MonBrightnessDown,  spawn,     SHCMD("xbacklight -dec 5") },
 	{ 0, XF86XK_AudioNext,          spawn,     SHCMD("mpc next") },
@@ -131,7 +132,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ControlMask,           XK_q,      quit,           {0} },
 };
 
 /* button definitions */
