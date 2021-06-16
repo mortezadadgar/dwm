@@ -1990,7 +1990,7 @@ unmanage(Client *c, int destroyed)
 	focus(NULL);
 	updateclientlist();
 	arrange(m);
-	if (c->switchtotag) {
+	if (c->switchtotag && !nexttiled(m->clients)) {
 		Arg a = { .ui = c->switchtotag };
 		view(&a);
 	}
