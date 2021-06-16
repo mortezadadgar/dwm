@@ -92,7 +92,7 @@ struct Client {
 	int basew, baseh, incw, inch, maxw, maxh, minw, minh;
 	int bw, oldbw;
 	unsigned int tags;
-	unsigned int switchtotag;
+	Bool switchtotag;
 	int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen;
 	Client *next;
 	Client *snext;
@@ -315,7 +315,7 @@ applyrules(Client *c)
 				c->mon = m;
 			if (r->switchtotag) {
 				Arg a = { .ui = r->tags };
-				c->switchtotag = selmon->tagset[selmon->seltags];
+				c->switchtotag = True;
 				view(&a);
 			}
 		}
@@ -1811,7 +1811,8 @@ unmanage(Client *c, int destroyed)
 	updateclientlist();
 	arrange(m);
 	if (c->switchtotag && !nexttiled(m->clients)) {
-		Arg a = { .ui = c->switchtotag };
+		Arg a = { 0 };
+		c->switchtotag = False;
 		view(&a);
 	}
 }
