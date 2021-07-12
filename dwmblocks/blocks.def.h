@@ -5,8 +5,8 @@ static const Block blocks[] = {
 	{""               ,       "dwm-status -a",            0,            10,       },
 	{""               ,       "dwm-status -t",            8,             0,       },
 	{""               ,       "dwm-status -b",            8,             0,       },
-	{""               ,       "dwm-status -w",            3,             0,       },
-	{"^c#61AFEF^󰃭 ^d^",       "date '+%b %d - %H:%M'",   60,            0,       },
+	{""               ,       "dwm-status -w",            2,             0,       },
+	{"^c#61AFEF^󰃭 ^d^",       "date '+%b %d - %H:%M'",   60,             0,       },
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.
