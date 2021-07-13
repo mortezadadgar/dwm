@@ -13,12 +13,12 @@ static const int user_bh            = 25;        /* 0 means that dwm will calcul
 static const int focusonwheel       = 0;
 static const char *fonts[]          = { "RobotoMono Nerd Font:size=10", "Material Design Icons:size=10" };
 static const char dmenufont[]       = "RobotoMono Nerd Font:size=10";
-static const char col_gray1[]       = "#282c34";
-static const char col_gray2[]       = "#64656A"; /* gray */
+static const char col_gray1[]       = "#282828";
+static const char col_gray2[]       = "#282828"; /* gray */
 static const char col_gray3[]       = "#dfdfdf"; /* white */
-static const char col_gray4[]       = "#1d2026"; /* dark bkg */
+static const char col_gray4[]       = "#32302f"; /* dark bkg */
 static const char col_gray5[]       = "#8a8b91"; /* lighter gray */
-static const char col_blue[]        = "#61AFEF";
+static const char col_blue[]        = "#fabd2f";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
