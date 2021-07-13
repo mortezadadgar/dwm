@@ -15,9 +15,9 @@ static const char *fonts[]          = { "RobotoMono Nerd Font:size=10", "Materia
 static const char dmenufont[]       = "RobotoMono Nerd Font:size=10";
 static const char col_gray1[]       = "#282828";
 static const char col_gray2[]       = "#282828"; /* gray */
-static const char col_gray3[]       = "#dfdfdf"; /* white */
+static const char col_gray3[]       = "#ebdbb2"; /* white */
 static const char col_gray4[]       = "#32302f"; /* dark bkg */
-static const char col_gray5[]       = "#8a8b91"; /* lighter gray */
+static const char col_gray5[]       = "#fabd2f"; /* lighter gray */
 static const char col_blue[]        = "#fabd2f";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
