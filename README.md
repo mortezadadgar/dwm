@@ -1,4 +1,4 @@
-# Applied patches #
+# Applied patches
 * alwayscenter 
 * fullgaps 
 * pertag
@@ -8,3 +8,5 @@
 * barheight
 * switchtotag
 * focusonnetactive
+* float-border-color
+* namedscratchpads
