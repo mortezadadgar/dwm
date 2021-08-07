@@ -19,10 +19,10 @@ static const char col_gray3[]       = "#dfdfdf"; /* white */
 static const char col_gray4[]       = "#1d2026"; /* dark bkg */
 static const char col_gray5[]       = "#8a8b91"; /* lighter gray */
 static const char col_blue[]        = "#61AFEF";
-static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray1, col_blue,  col_gray5  },
+static const char *colors[][4]      = {
+	/*               fg         bg         border     float   */
+	[SchemeNorm] = { col_gray3, col_gray1, col_gray2, col_gray2 },
+	[SchemeSel]  = { col_gray1, col_blue,  col_gray5, col_blue },
 	[SchemeStatus]  = { col_gray3, col_gray4,  "#000000"  }, // Statusbar right
 	[SchemeTagsSel]  = { col_blue, col_gray4,  "#000000"  }, // Tagbar left selected
     [SchemeTagsNorm]  = { col_gray3, col_gray4,  "#000000"  }, // Tagbar left unselected
