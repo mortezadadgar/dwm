@@ -38,14 +38,17 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/*  class               instance  title  tags  mask  switchtotag    isfloating  monitor  */  
-	{   "firefox",          NULL,     NULL,  	  1   << 1,   1,             0,          -1  },
-	{   "TelegramDesktop",  NULL,     NULL,  	  1   << 2,   1,             0,          -1  },
-	{   "mpv",              NULL,     NULL,  	  1   << 3,   1,             0,          -1  },
-	{   "Zathura",          NULL,     NULL,  	  1   << 4,   1,             0,          -1  },
-	{   "Alacritty",        NULL,     "ncmpcpp",  1   << 5,   1,             1,          -1  },
-	{   "Alacritty",        NULL,     "note",            0,   0,             1,          -1  },
-	{   "qBittorrent",      NULL,     NULL,  	  1   << 6,   1,             1,          -1  },
+
+/* layout(s) */
+	/*  class               instance  title  tags  mask  switchtotag    isfloating  monitor  scratch key */
+	{   "firefox",          NULL,     NULL,  	  1   << 1,   1,             0,          -1,  0  },
+	{   "TelegramDesktop",  NULL,     NULL,  	  1   << 2,   1,             0,          -1,  0  },
+	{   "mpv",              NULL,     NULL,  	  1   << 3,   1,             0,          -1,  0  },
+	{   "Zathura",          NULL,     NULL,  	  1   << 4,   1,             0,          -1,  0  },
+	{   "Alacritty",        NULL,     "ncmpcpp",  1   << 5,   1,             1,          -1,  0  },
+	{   "Alacritty",        NULL,     "note",            0,   0,             1,          -1,  0  },
+	{   "qBittorrent",      NULL,     NULL,  	  1   << 6,   1,             1,          -1,  0  },
+	{            NULL,      NULL,     "scratchpad",      0,   0,             1,          -1, 's' },
 };
 
 /* layout(s) */
@@ -77,10 +80,14 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-bw", "2", "-c", "-l", "10", NULL };
 static const char *termcmd[]  = { TERM, NULL };
 
+/*First arg only serves to match against key in rules*/
+static const char *scratchpadcmd[] = {"s", TERM, "-t", "scratchpad", NULL}; 
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,						XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_u,      togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
