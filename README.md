@@ -10,3 +10,5 @@
 * focusonnetactive
 * float-border-color
 * namedscratchpads
+* sticky
+* stickyindicator
