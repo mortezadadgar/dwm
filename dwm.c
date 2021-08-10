@@ -1948,6 +1948,10 @@ togglescratch(const Arg *arg)
 
 	for (c = selmon->clients; c && !(found = c->scratchkey == ((char**)arg->v)[0][0]); c = c->next);
 	if (found) {
+		if (c->issticky) {
+			c->issticky = 0;
+		}
+
 		c->tags = ISVISIBLE(c) ? 0 : selmon->tagset[selmon->seltags];
 		focus(NULL);
 		arrange(selmon);
