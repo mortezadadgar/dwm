@@ -48,7 +48,6 @@ static const Rule rules[] = {
 	{   "mpv",              NULL,     NULL,  	  1   << 3,   1,             0,          -1,  0  },
 	{   "Zathura",          NULL,     NULL,  	  1   << 4,   1,             0,          -1,  0  },
 	{   "Alacritty",        NULL,     "ncmpcpp",  1   << 5,   1,             1,          -1,  0  },
-	{   "Alacritty",        NULL,     "note",            0,   0,             1,          -1,  0  },
 	{   "qBittorrent",      NULL,     NULL,  	  1   << 6,   1,             1,          -1,  0  },
 	{            NULL,      NULL,     "scratchpad",      0,   0,             1,          -1, 's' },
 };
@@ -124,7 +123,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_c,      spawn,          SHCMD("dmenucalc") },
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("dmenukill") },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("open-ncmpcpp") },
-	{ MODKEY,                       XK_y,      spawn,          SHCMD("open-note") },
 	{ MODKEY|ControlMask,           XK_q,      spawn,          SHCMD("dwmout")} ,
 	{ 0, XF86XK_MonBrightnessUp,    spawn,     SHCMD("xbacklight -inc 5") },
 	{ 0, XF86XK_MonBrightnessDown,  spawn,     SHCMD("xbacklight -dec 5") },
