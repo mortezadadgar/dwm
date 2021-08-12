@@ -50,6 +50,7 @@ static const Rule rules[] = {
 	{   "Alacritty",        NULL,     "ncmpcpp",  1   << 5,   1,             1,          -1,  0  },
 	{   "qBittorrent",      NULL,     NULL,  	  1   << 6,   1,             1,          -1,  0  },
 	{            NULL,      NULL,     "scratchpad",      0,   0,             1,          -1, 's' },
+	{            NULL,      NULL,     "calc",      0,   0,             1,          -1, 'c' },
 };
 
 /* layout(s) */
@@ -83,12 +84,14 @@ static const char *termcmd[]  = { TERM, NULL };
 
 /*First arg only serves to match against key in rules*/
 static const char *scratchpadcmd[] = {"s", TERM, "-t", "scratchpad", "-o", "window.dimensions.columns=80", "-o", "window.dimensions.lines=23" ,NULL}; 
+static const char *calc[] = {"c", TERM, "-t", "calc", "-e", "python", "-q", NULL}; 
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,						XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_u,      togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY,                       XK_c,      togglescratch,  {.v = calc } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -118,7 +121,6 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_p,      spawn,          SHCMD("dmenupower") },
 	{ MODKEY,                       XK_Print,  spawn,          SHCMD("dmenumaim") },
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("dmenuiwd") },
-	{ MODKEY,                       XK_c,      spawn,          SHCMD("dmenucalc") },
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("dmenukill") },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("open-ncmpcpp") },
 	{ MODKEY|ControlMask,           XK_q,      spawn,          SHCMD("dwmout")} ,
