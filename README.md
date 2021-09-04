@@ -12,3 +12,6 @@
 * namedscratchpads
 * sticky
 * stickyindicator
+* actualfullscreen
+* colorbar
+* hide_vacant_tags
