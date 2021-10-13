@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 #include <X11/XF86keysym.h>
 
-#define TERM "alacritty"
+#define TERM "st"
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -47,7 +47,7 @@ static const Rule rules[] = {
 	{   "TelegramDesktop",  NULL,     NULL,  	        1   << 2,   1,             0,          -1,  0  },
 	{   "mpv",              NULL,     NULL,  	        1   << 3,   1,             0,          -1,  0  },
 	{   "Zathura",          NULL,     NULL,  	        1   << 4,   1,             0,          -1,  0  },
-	{   "Alacritty",        NULL,     "ncmpcpp",        1   << 5,   1,             1,          -1,  0  },
+	{   NULL,               NULL,     "ncmpcpp",        1   << 5,   1,             1,          -1,  0  },
 	{   "qBittorrent",      NULL,     NULL,  	        1   << 6,   1,             1,          -1,  0  },
 	{   "libreoffice",      NULL,     NULL,  			1   << 7,   1,             0,          -1,  0  },
 	{   NULL,               NULL,     "scratchpad",     0,          0,             1,          -1, 's' },
