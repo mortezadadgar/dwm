@@ -85,7 +85,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-bw", "2", "-c", "-l", "10", NUL
 static const char *termcmd[]  = { TERM, NULL };
 
 /*First arg only serves to match against key in rules*/
-static const char *scratchpadcmd[] = {"s", TERM, "-t", "scratchpad", "-o", "window.dimensions.columns=80", "-o", "window.dimensions.lines=26" ,NULL};
+static const char *scratchpadcmd[] = {"s", TERM, "-t", "scratchpad", "-g", "80x26", NULL};
 static const char *calc[] = {"c", TERM, "-t", "calc", "-e", "bc", "-q", NULL};
 static const char *nnn[] = {"n", TERM, "-t", "nnn", "-e", "nnn", "-eu", NULL};
 
