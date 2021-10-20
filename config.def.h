@@ -44,6 +44,7 @@ static const Rule rules[] = {
 /* layout(s) */
 	/*  class               instance  title            tags  mask  switchtotag    isfloating  monitor  scratch key */
 	{   "firefox",          NULL,     NULL,  	        1   << 1,   1,             0,          -1,  0  },
+	{   "Firefox",          NULL,     NULL,  	        1   << 1,   1,             0,          -1,  0  },
 	{   "TelegramDesktop",  NULL,     NULL,  	        1   << 2,   1,             0,          -1,  0  },
 	{   "mpv",              NULL,     NULL,  	        1   << 3,   1,             0,          -1,  0  },
 	{   "Zathura",          NULL,     NULL,  	        1   << 4,   1,             0,          -1,  0  },
@@ -121,6 +122,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_minus,  setgaps,        {.i = GAP_RESET } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = GAP_TOGGLE} },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox") },
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox-bin") },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("telegram-desktop") },
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("dmenupass") },
 	{ MODKEY|ControlMask,           XK_p,      spawn,          SHCMD("dmenupower") },
