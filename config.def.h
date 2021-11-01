@@ -82,7 +82,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-bw", "2", "-c", "-l", "10", NULL };
+static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = { TERM, NULL };
 
 /*First arg only serves to match against key in rules*/
@@ -121,8 +121,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +5 } },
 	{ MODKEY|ShiftMask,             XK_minus,  setgaps,        {.i = GAP_RESET } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = GAP_TOGGLE} },
-	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox") },
-	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox-bin") },
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox-bin || firefox") },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("telegram-desktop") },
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("dmenupass") },
 	{ MODKEY|ControlMask,           XK_p,      spawn,          SHCMD("dmenupower") },
@@ -130,7 +129,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("dmenuiwd") },
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("dmenukill") },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("open-ncmpcpp") },
-	{ MODKEY|ControlMask,           XK_q,      spawn,          SHCMD("dwmout")} ,
 	{ 0, XF86XK_MonBrightnessUp,    spawn,     SHCMD("xbacklight -inc 3") },
 	{ 0, XF86XK_MonBrightnessDown,  spawn,     SHCMD("xbacklight -dec 3") },
 	{ 0, XF86XK_AudioNext,          spawn,     SHCMD("mpc next; kill -45 $(pidof dwmblocks)") },
