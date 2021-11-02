@@ -1,4 +1,7 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
+
+#define TERM "st"
 
 /* appearance */
 static unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -10,13 +13,13 @@ static const int focusonwheel = 0;
 static int user_bh            = 0;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static char font[]            = "monospace:size=10";
 static char dmenufont[]       = "monospace:size=10";
-static const char *fonts[]          = { font };
-static char normbgcolor[]           = "#222222";
-static char normbordercolor[]       = "#444444";
-static char normfgcolor[]           = "#bbbbbb";
-static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#005577";
-static char selbgcolor[]            = "#005577";
+static const char *fonts[]    = { "RobotoMono Nerd Font:size=10", "Material Design Icons:size=10" }; /* Xresources don't accept multiple fonts */
+static char normbgcolor[]     = "#222222";
+static char normbordercolor[] = "#444444";
+static char normfgcolor[]     = "#bbbbbb";
+static char selfgcolor[]      = "#eeeeee";
+static char selbordercolor[]  = "#005577";
+static char selbgcolor[]      = "#005577";
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -31,10 +34,17 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     switchtotag    isfloating   monitor  scratch key */
-	{ "Gimp",     NULL,       NULL,       0,            0,             1,           -1,       0  },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,             0,           -1,       0  },
-	{ NULL,       NULL,      "scratchpad",     0,       0,             1,           -1,      's' },
+/* layout(s) */
+	/*  class               instance  title            tags  mask  switchtotag    isfloating  monitor  scratch key */
+	{   "firefox",          NULL,     NULL,  	        1   << 1,   1,             0,          -1,  0  },
+	{   "Firefox",          NULL,     NULL,  	        1   << 1,   1,             0,          -1,  0  },
+	{   "TelegramDesktop",  NULL,     NULL,  	        1   << 2,   1,             0,          -1,  0  },
+	{   "mpv",              NULL,     NULL,  	        1   << 3,   1,             0,          -1,  0  },
+	{   "Zathura",          NULL,     NULL,  	        1   << 4,   1,             0,          -1,  0  },
+	{   "qBittorrent",      NULL,     NULL,  	        1   << 6,   1,             1,          -1,  0  },
+	{   NULL,               NULL,     "ncmpcpp",        1   << 5,   1,             1,          -1,  0  },
+	{   NULL,               NULL,     "scratchpad",     0,          0,             1,          -1, 's' },
+	{   NULL,               NULL,     "nnn",            0,          0,             1,          -1, 'n' },
 };
 
 /* layout(s) */
@@ -51,7 +61,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -63,11 +73,10 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "st", NULL };
-
-/*First arg only serves to match against key in rules*/
-static const char *scratchpadcmd[] = {"s", "st", "-t", "scratchpad", NULL}; 
+static const char *dmenucmd[] = { "dmenu_run", NULL };
+static const char *termcmd[]  = { TERM, NULL };
+static const char *scratchpadcmd[] = {"s", TERM, "-t", "scratchpad", "-g", "80x26", NULL};
+static const char *nnn[] = {"n", TERM, "-t", "nnn", "-e", "nnn", "-eu", NULL};
 
 /*
  * Xresources preferences to load at startup
@@ -94,30 +103,40 @@ ResourcePref resources[] = {
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_u,      togglescratch,  {.v = scratchpadcmd } },
+	{ Mod1Mask,                     XK_n,      togglescratch,  {.v = nnn } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
+	{ MODKEY,                       XK_space,  zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+	{ MODKEY|ShiftMask,             XK_s,      togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox-bin || firefox") },
+	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("telegram-desktop") },
+	{ MODKEY,                       XK_p,      spawn,          SHCMD("dmenupass") },
+	{ MODKEY|ControlMask,           XK_p,      spawn,          SHCMD("dmenupower") },
+	{ MODKEY,                       XK_Print,  spawn,          SHCMD("dmenumaim") },
+	{ MODKEY,                       XK_n,      spawn,          SHCMD("dmenuiwd") },
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("open-ncmpcpp") },
+	{ 0, XF86XK_MonBrightnessUp,    spawn,     SHCMD("light -A 5") },
+	{ 0, XF86XK_MonBrightnessDown,  spawn,     SHCMD("light -U 5") },
+	{ 0, XF86XK_AudioNext,          spawn,     SHCMD("mpc next; kill -45 $(cat ~/.cache/pidofbar)") },
+	{ 0, XF86XK_AudioPrev,          spawn,     SHCMD("mpc prev; kill -45 $(cat ~/.cache/pidofbar)") },
+	{ 0, XF86XK_AudioPlay,          spawn,     SHCMD("mpc toggle; kill -45 $(cat ~/.cache/pidofbar)") },
+	{ 0, XF86XK_AudioStop,          spawn,     SHCMD("mpc stop; kill -45 $(cat ~/.cache/pidofbar)") },
+	{ 0, XF86XK_AudioRaiseVolume,	spawn,	   SHCMD("amixer -q set Master 10%+; kill -34 $(cat ~/.cache/pidofbar)") },
+	{ 0, XF86XK_AudioLowerVolume,	spawn,	   SHCMD("amixer -q set Master 10%-; kill -34 $(cat ~/.cache/pidofbar)") },
+	{ 0, XF86XK_AudioMute,		    spawn,	   SHCMD("amixer -q set Master toggle; kill -34 $(cat ~/.cache/pidofbar)") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -127,7 +146,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
 /* button definitions */
