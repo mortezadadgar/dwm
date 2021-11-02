@@ -12,7 +12,6 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 25;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const int focusonwheel       = 0;
 static const char *fonts[]          = { "RobotoMono Nerd Font:size=10", "Material Design Icons:size=10" };
-static const char dmenufont[]       = "RobotoMono Nerd Font:size=10";
 static const char col_gray1[]       = "#282c34";
 static const char col_gray2[]       = "#64656A"; /* gray */
 static const char col_gray3[]       = "#dfdfdf"; /* white */
@@ -48,9 +47,9 @@ static const Rule rules[] = {
 	{   "TelegramDesktop",  NULL,     NULL,  	        1   << 2,   1,             0,          -1,  0  },
 	{   "mpv",              NULL,     NULL,  	        1   << 3,   1,             0,          -1,  0  },
 	{   "Zathura",          NULL,     NULL,  	        1   << 4,   1,             0,          -1,  0  },
-	{   NULL,               NULL,     "ncmpcpp",        1   << 5,   1,             1,          -1,  0  },
 	{   "qBittorrent",      NULL,     NULL,  	        1   << 6,   1,             1,          -1,  0  },
 	{   "libreoffice",      NULL,     NULL,  			1   << 7,   1,             0,          -1,  0  },
+	{   NULL,               NULL,     "ncmpcpp",        1   << 5,   1,             1,          -1,  0  },
 	{   NULL,               NULL,     "scratchpad",     0,          0,             1,          -1, 's' },
 	{   NULL,               NULL,     "calc",           0,          0,             1,          -1, 'c' },
 	{   NULL,               NULL,     "nnn",            0,          0,             1,          -1, 'n' },
@@ -127,7 +126,6 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_p,      spawn,          SHCMD("dmenupower") },
 	{ MODKEY,                       XK_Print,  spawn,          SHCMD("dmenumaim") },
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("dmenuiwd") },
-	{ MODKEY,                       XK_e,      spawn,          SHCMD("dmenukill") },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("open-ncmpcpp") },
 	{ 0, XF86XK_MonBrightnessUp,    spawn,     SHCMD("xbacklight -inc 3") },
 	{ 0, XF86XK_MonBrightnessDown,  spawn,     SHCMD("xbacklight -dec 3") },
@@ -135,9 +133,9 @@ static Key keys[] = {
 	{ 0, XF86XK_AudioPrev,          spawn,     SHCMD("mpc prev; kill -45 $(pidof dwmblocks)") },
 	{ 0, XF86XK_AudioPlay,          spawn,     SHCMD("mpc toggle; kill -45 $(pidof dwmblocks)") },
 	{ 0, XF86XK_AudioStop,          spawn,     SHCMD("mpc stop; kill -45 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioRaiseVolume,	spawn,	   SHCMD("amixer --quiet set Master 10%+; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioLowerVolume,	spawn,	   SHCMD("amixer --quiet set Master 10%-; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioMute,		    spawn,	   SHCMD("amixer --quiet set Master toggle; kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioRaiseVolume,	spawn,	   SHCMD("amixer -q set Master 10%+; kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioLowerVolume,	spawn,	   SHCMD("amixer -q set Master 10%-; kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioMute,		    spawn,	   SHCMD("amixer -q set Master toggle; kill -44 $(pidof dwmblocks)") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
