@@ -36,7 +36,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/*  class               instance  title            tags  mask  switchtotag    isfloating  monitor */
-	{   "Firefox",          NULL,     NULL,  	        1   << 1,   1,             0,          -1 },
+	{   "firefox",          NULL,     NULL,  	        1   << 1,   1,             0,          -1 },
 	{   "TelegramDesktop",  NULL,     NULL,  	        1   << 2,   1,             0,          -1 },
 	{   "mpv",              NULL,     NULL,  	        1   << 3,   1,             0,          -1 },
 	{   "Zathura",          NULL,     NULL,  	        1   << 4,   1,             0,          -1 },
@@ -112,7 +112,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_s,      togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox-bin || firefox") },
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox") },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("telegram-desktop") },
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("dmenupass") },
 	{ MODKEY|ControlMask,           XK_p,      spawn,          SHCMD("dmenupower") },
