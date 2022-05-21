@@ -37,6 +37,7 @@ static const Rule rules[] = {
 	{   "TelegramDesktop",  NULL,     NULL,  	        1   << 2,   1,             0,          -1 },
 	{   "mpv",              NULL,     NULL,  	        1   << 3,   1,             0,          -1 },
 	{   "Zathura",          NULL,     NULL,  	        1   << 4,   1,             0,          -1 },
+	{   "qBittorrent",      NULL,     NULL,  	        1   << 7,   1,             1,          -1  },
 	{   NULL,               NULL,     "ncmpcpp",        1   << 5,   1,             1,          -1 },
 };
 
