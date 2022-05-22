@@ -25,7 +25,7 @@ static char *colors[][3] = {
 };
 
 /* tagging */
-static const char *tags[] = { "dev", "www", "cht", "vid", "doc", "mus", "hot", "tmp" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -107,8 +107,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Print,  spawn,          SHCMD("dmenumaim") },
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("dmenuiwd") },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("open-ncmpcpp") },
-	{ 0, XF86XK_MonBrightnessUp,    spawn,     SHCMD("xbacklight -inc 3") },
-	{ 0, XF86XK_MonBrightnessDown,  spawn,     SHCMD("xbacklight -dec 3") },
+	{ 0, XF86XK_MonBrightnessUp,    spawn,     SHCMD("light -A 3") },
+	{ 0, XF86XK_MonBrightnessDown,  spawn,     SHCMD("light -U 3") },
 	{ 0, XF86XK_AudioNext,          spawn,     SHCMD("mpc -q next") },
 	{ 0, XF86XK_AudioPrev,          spawn,     SHCMD("mpc -q prev") },
 	{ 0, XF86XK_AudioPlay,          spawn,     SHCMD("mpc -q toggle") },
