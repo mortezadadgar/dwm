@@ -115,16 +115,16 @@ static const Key keys[] = {
 	{ 0, XF86XK_AudioPrev,          spawn,     SHCMD("mpc -q prev") },
 	{ 0, XF86XK_AudioPlay,          spawn,     SHCMD("mpc -q toggle") },
 	{ 0, XF86XK_AudioStop,          spawn,     SHCMD("mpc -q stop") },
-	{ 0, XF86XK_AudioRaiseVolume,   spawn,     SHCMD("amixer -q set Master 10%+; kill -34 $(cat ~/.cache/pidofbar)") },
-	{ 0, XF86XK_AudioLowerVolume,   spawn,     SHCMD("amixer -q set Master 10%-; kill -34 $(cat ~/.cache/pidofbar)") },
-	{ 0, XF86XK_AudioMute,          spawn,     SHCMD("amixer -q set Master toggle; kill -34 $(cat ~/.cache/pidofbar)") },
+	{ 0, XF86XK_AudioRaiseVolume,   spawn,     SHCMD("amixer -q set Master 10%+; kill -RTMIN $(cat ~/.cache/pidofbar)") },
+	{ 0, XF86XK_AudioLowerVolume,   spawn,     SHCMD("amixer -q set Master 10%-; kill -RTMIN $(cat ~/.cache/pidofbar)") },
+	{ 0, XF86XK_AudioMute,          spawn,     SHCMD("amixer -q set Master toggle; kill -RTMIN $(cat ~/.cache/pidofbar)") },
 	// non-multimedia keyboards
 	{ 0, XK_End,                    spawn,     SHCMD("mpc -q next") },
 	{ 0, XK_Home,                   spawn,     SHCMD("mpc -q prev") },
 	{ 0, XK_Insert,                 spawn,     SHCMD("mpc -q toggle") },
-	{ 0, XK_Page_Up,                spawn,     SHCMD("amixer -q set Master 10%+; kill -34 $(cat ~/.cache/pidofbar)") },
-	{ 0, XK_Page_Down,              spawn,     SHCMD("amixer -q set Master 10%-; kill -34 $(cat ~/.cache/pidofbar)") },
-	{ 0, XK_Pause,                  spawn,     SHCMD("amixer -q set Master toggle; kill -34 $(cat ~/.cache/pidofbar)") },
+	{ 0, XK_Page_Up,                spawn,     SHCMD("amixer -q set Master 10%+; kill -RTMIN $(cat ~/.cache/pidofbar)") },
+	{ 0, XK_Page_Down,              spawn,     SHCMD("amixer -q set Master 10%-; kill -RTMIN $(cat ~/.cache/pidofbar)") },
+	{ 0, XK_Pause,                  spawn,     SHCMD("amixer -q set Master toggle; kill -RTMIN $(cat ~/.cache/pidofbar)") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
