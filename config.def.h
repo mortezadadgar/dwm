@@ -34,6 +34,7 @@ static const Rule rules[] = {
 	 */
 	/*  class               instance  title            tags  mask  switchtotag    isfloating  monitor scratch key */
 	{   "firefox",          NULL,     NULL,  	        1   << 1,   1,             0,          -1,     0  },
+	{   "chromium",         NULL,     NULL,  	        1   << 1,   1,             0,          -1,     0  },
 	{   "TelegramDesktop",  NULL,     NULL,  	        1   << 2,   1,             0,          -1,     0  },
 	{   "mpv",              NULL,     NULL,  	        1   << 3,   1,             0,          -1,     0  },
 	{   "Zathura",          NULL,     NULL,  	        1   << 4,   1,             0,          -1,     0  },
@@ -103,6 +104,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("firefox") },
+	{ MODKEY|ShiftMask,             XK_c,      spawn,          SHCMD("open-chromium") },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("telegram-desktop") },
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("dmenupass") },
 	{ MODKEY|ControlMask,           XK_p,      spawn,          SHCMD("dmenupower") },
@@ -122,6 +124,7 @@ static const Key keys[] = {
 	{ 0, XK_End,                    spawn,     SHCMD("mpc -q next") },
 	{ 0, XK_Home,                   spawn,     SHCMD("mpc -q prev") },
 	{ 0, XK_Insert,                 spawn,     SHCMD("mpc -q toggle") },
+	{ 0, XK_Delete,                 spawn,     SHCMD("mpc -q stop") },
 	{ 0, XK_Page_Up,                spawn,     SHCMD("amixer -q set Master 5%+; kill -RTMIN $(cat ~/.cache/pidofbar)") },
 	{ 0, XK_Page_Down,              spawn,     SHCMD("amixer -q set Master 5%-; kill -RTMIN $(cat ~/.cache/pidofbar)") },
 	{ 0, XK_Pause,                  spawn,     SHCMD("amixer -q set Master toggle; kill -RTMIN $(cat ~/.cache/pidofbar)") },
