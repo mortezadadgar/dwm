@@ -108,7 +108,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("telegram-desktop") },
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("dmenupass") },
 	{ MODKEY|ControlMask,           XK_p,      spawn,          SHCMD("dmenupower") },
-	{ MODKEY,                       XK_Print,  spawn,          SHCMD("dmenumaim") },
+	{ MODKEY,                       XK_Print,  spawn,          SHCMD("maimpick") },
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("dmenuiwd") },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("open-ncmpcpp") },
 	{ 0, XF86XK_MonBrightnessUp,    spawn,     SHCMD("light -A 3") },
