@@ -1148,6 +1148,8 @@ loadxrdb()
         XRDB_LOAD_COLOR("dwm.selbgcolor", selbgcolor);
         XRDB_LOAD_COLOR("dwm.selfgcolor", selfgcolor);
       }
+
+	  XrmDestroyDatabase(xrdb);
     }
   }
 
