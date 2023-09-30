@@ -39,7 +39,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/*  class               instance  title            tags  mask  switchtotag    isfloating  monitor scratch key */
-	{   "firefox",          NULL,     NULL,  	        1   << 1,   1,             0,          -1,     0  },
+	{   "firefox",          NULL,     NULL,  	        1   << 1,   0,             0,          -1,     0  },
 	{   "chromium",         NULL,     NULL,  	        1   << 1,   1,             0,          -1,     0  },
 	{   "TelegramDesktop",  NULL,     NULL,  	        1   << 2,   1,             0,          -1,     0  },
 	{   "thunderbird",      NULL,     NULL,  	        1   << 2,   1,             0,          -1,     0  },
