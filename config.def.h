@@ -71,7 +71,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", NULL };
-static const char *termcmd[]  = { TERM, "-e", "tmux", NULL };
+static const char *termcmd[]  = { TERM, NULL };
 
 /*First arg only serves to match against key in rules*/
 static const char *scratchpadcmd[] = {"s", TERM, "-t", "scratchpad", NULL};
