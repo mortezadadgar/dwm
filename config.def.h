@@ -42,6 +42,7 @@ static const Rule rules[] = {
 	{   "firefox",          NULL,     NULL,  	        1   << 1,   1,             0,          -1,     0  },
 	{   "chromium",         NULL,     NULL,  	        1   << 1,   1,             0,          -1,     0  },
 	{   "TelegramDesktop",  NULL,     NULL,  	        1   << 2,   1,             0,          -1,     0  },
+	{   "thunderbird",      NULL,     NULL,  	        1   << 2,   1,             0,          -1,     0  },
 	{   "mpv",              NULL,     NULL,  	        1   << 3,   1,             0,          -1,     0  },
 	{   "Zathura",          NULL,     NULL,  	        1   << 4,   1,             0,          -1,     0  },
 	{   "qBittorrent",      NULL,     NULL,  	        1   << 7,   1,             1,          -1,     0  },
