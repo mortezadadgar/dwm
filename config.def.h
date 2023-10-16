@@ -117,6 +117,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Print,  spawn,          SHCMD("maimpick") },
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("dmenuiwd") },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("open-ncmpcpp") },
+	{ MODKEY|ShiftMask,             XK_c,      spawn,          SHCMD("color-picker") },
 	{ 0, XF86XK_MonBrightnessUp,    spawn,     SHCMD("light -A 3") },
 	{ 0, XF86XK_MonBrightnessDown,  spawn,     SHCMD("light -U 3") },
 	{ 0, XF86XK_AudioNext,          spawn,     SHCMD("mpc -q next") },
