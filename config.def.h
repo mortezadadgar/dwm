@@ -32,17 +32,17 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/*  class               instance  title            tags  mask  switchtotag    isfloating  monitor scratch key */
-	{   "firefox",          NULL,     NULL,  	        1   << 1,   0,             0,          -1,     0  },
-	{   "chromium",         NULL,     NULL,  	        1   << 1,   1,             0,          -1,     0  },
-	{   "TelegramDesktop",  NULL,     NULL,  	        1   << 2,   1,             0,          -1,     0  },
-	{   "mpv",              NULL,     NULL,  	        1   << 3,   1,             0,          -1,     0  },
-	{   "Zathura",          NULL,     NULL,  	        1   << 4,   1,             0,          -1,     0  },
-	{   "thunderbird",      NULL,     NULL,  	        1   << 6,   1,             0,          -1,     0  },
-	{   "Nsxiv",            NULL,     NULL,  	        1   << 7,   1,             1,          -1,     0  },
-	{   "qBittorrent",      NULL,     NULL,  	        1   << 7,   1,             1,          -1,     0  },
-	{   NULL,               NULL,     "ncmpcpp",        1   << 5,   1,             1,          -1,     0  },
-	{   NULL,               NULL,     "scratchpad",     0,          0,             1,          -1,    's' },
+	/*  class               instance  title            tags  mask   isfloating  monitor scratch key */
+	{   "firefox",          NULL,     NULL,  	        1   << 1,    0,          -1,     0  },
+	{   "chromium",         NULL,     NULL,  	        1   << 1,    0,          -1,     0  },
+	{   "TelegramDesktop",  NULL,     NULL,  	        1   << 2,    0,          -1,     0  },
+	{   "mpv",              NULL,     NULL,  	        1   << 3,    0,          -1,     0  },
+	{   "Zathura",          NULL,     NULL,  	        1   << 4,    0,          -1,     0  },
+	{   "thunderbird",      NULL,     NULL,  	        1   << 6,    0,          -1,     0  },
+	{   "Nsxiv",            NULL,     NULL,  	        1   << 7,    1,          -1,     0  },
+	{   "qBittorrent",      NULL,     NULL,  	        1   << 7,    1,          -1,     0  },
+	{   NULL,               NULL,     "ncmpcpp",        1   << 5,    1,          -1,     0  },
+	{   NULL,               NULL,     "scratchpad",     0,           1,          -1,    's' },
 };
 
 /* layout(s) */
