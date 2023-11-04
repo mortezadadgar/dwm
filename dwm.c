@@ -810,7 +810,7 @@ dirtomon(int dir)
 void
 drawbar(Monitor *m)
 {
-	int x, w, tw = 0, n = 0;
+	int x, w, tw = 0;
 	int boxs = drw->fonts->h / 9;
 	int boxw = drw->fonts->h / 6 + 2;
 	unsigned int i, occ = 0, urg = 0;
@@ -827,8 +827,6 @@ drawbar(Monitor *m)
 	}
 
 	for (c = m->clients; c; c = c->next) {
-		if (ISVISIBLE(c))
-			n++;
 		occ |= c->tags;
 		if (c->isurgent)
 			urg |= c->tags;
@@ -850,23 +848,10 @@ drawbar(Monitor *m)
 
 	if ((w = m->ww - tw - x) > bh) {
 		if (m->sel) {
-			if (selmon->lt[selmon->sellt]->arrange == monocle) {
-				int tabw = (1.0 / (double)n) * w + 1;
-				for (c = m->clients; c; c = c->next) {
-					if (!ISVISIBLE(c))
-						continue;
-					drw_setscheme(drw, scheme[m->sel == c ? SchemeSel : SchemeNorm]);
-					drw_text(drw, x, 0, tabw, bh, lrpad / 2, c->name, 0);
-					if (c->isfloating)
-						drw_rect(drw, x + boxs, boxs, boxw, boxw, m->sel->isfixed, 0);
-					x += tabw;
-				}
-			} else {
-				drw_setscheme(drw, scheme[m == selmon ? SchemeSel : SchemeNorm]);
-				drw_text(drw, x, 0, w, bh, lrpad / 2, m->sel->name, 0);
-				if (m->sel->isfloating)
-					drw_rect(drw, x + boxs, boxs, boxw, boxw, m->sel->isfixed, 0);
-			}
+			drw_setscheme(drw, scheme[m == selmon ? SchemeSel : SchemeNorm]);
+			drw_text(drw, x, 0, w, bh, lrpad / 2, m->sel->name, 0);
+			if (m->sel->isfloating)
+				drw_rect(drw, x + boxs, boxs, boxw, boxw, m->sel->isfixed, 0);
 		} else {
 			drw_setscheme(drw, scheme[SchemeNorm]);
 			drw_rect(drw, x, 0, w, bh, 1, 1);
