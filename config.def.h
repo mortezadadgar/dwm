@@ -36,6 +36,7 @@ static const Rule rules[] = {
 	{   "firefox",          NULL,     NULL,  	        1   << 1,    0,          -1,     0  },
 	{   "chromium",         NULL,     NULL,  	        1   << 1,    0,          -1,     0  },
 	{   "TelegramDesktop",  NULL,     NULL,  	        1   << 2,    0,          -1,     0  },
+	{   "discord",          NULL,     NULL,		        1   << 2,    0,          -1,     0  },
 	{   "mpv",              NULL,     NULL,  	        1   << 3,    0,          -1,     0  },
 	{   "Zathura",          NULL,     NULL,  	        1   << 4,    0,          -1,     0  },
 	{   "thunderbird",      NULL,     NULL,  	        1   << 6,    0,          -1,     0  },
@@ -129,7 +130,8 @@ static const Key keys[] = {
 	{ MODKEY, XK_Insert,                 spawn,     SHCMD("mpc -q stop") },
 	{ 0,      XK_Page_Up,                spawn,     SHCMD("amixer -q set Master 5%+; kill -RTMIN $(cat ~/.cache/pidofbar)") },
 	{ 0,      XK_Page_Down,              spawn,     SHCMD("amixer -q set Master 5%-; kill -RTMIN $(cat ~/.cache/pidofbar)") },
-	{ 0,      XK_Pause,                  spawn,     SHCMD("amixer -q set Master toggle; kill -RTMIN $(cat ~/.cache/pidofbar)") },
+	{ 0,      XK_Pause,                  spawn,     SHCMD("amixer -q set Master toggle; kill -RTMIN+2 $(cat ~/.cache/pidofbar)") },
+	{ 0,      XK_Scroll_Lock,            spawn,     SHCMD("amixer -q set Capture toggle; kill -RTMIN+2 $(cat ~/.cache/pidofbar)") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
