@@ -43,7 +43,7 @@ static const Rule rules[] = {
 	{   "Nsxiv",            NULL,     NULL,  	        1   << 7,    0,          -1,     0  },
 	{   "qBittorrent",      NULL,     NULL,  	        1   << 7,    1,          -1,     0  },
 	{   NULL,               NULL,     "ncmpcpp",        1   << 5,    1,          -1,     0  },
-	{   "QOwnNotes",        NULL,     NULL,             0,           1,          -1,    's' },
+	{   "Emacs",            NULL,     NULL,             0,           1,          -1,    's' },
 };
 
 /* layout(s) */
@@ -76,7 +76,7 @@ static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = { TERM, NULL };
 
 /*First arg only serves to match against key in rules*/
-static const char *scratchpadcmd[] = {"s", "QOwnNotes", NULL};
+static const char *scratchpadcmd[] = {"s", "emacs", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
