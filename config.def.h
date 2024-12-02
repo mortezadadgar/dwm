@@ -11,6 +11,8 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int focusonwheel       = 0;
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=9:style=Bold", "Vazirmatn UI NL:size=9:style=Bold" };
+#define ICONSIZE 16   /* icon size */
+#define ICONSPACING 5 /* space between icon and title */
 static const char dmenufont[]       = "monospace:size=10";
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
@@ -42,6 +44,7 @@ static const Rule rules[] = {
 	{   "thunderbird",      NULL,     NULL,  	        1   << 6,    0,          -1,     0  },
 	{   "Nsxiv",            NULL,     NULL,  	        1   << 7,    0,          -1,     0  },
 	{   "qBittorrent",      NULL,     NULL,  	        1   << 7,    1,          -1,     0  },
+	{   NULL,               NULL,     "Steam",  	    1   << 2,    0,          -1,     0  },
 	{   NULL,               NULL,     "ncmpcpp",        1   << 5,    1,          -1,     0  },
 	{   NULL,               NULL,     "scratchpad",     0,           1,          -1,    's' },
 };
@@ -106,12 +109,12 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("$BROWSER") },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("telegram-desktop") },
-	{ MODKEY,                       XK_p,      spawn,          SHCMD("dmenupass") },
+	{ MODKEY|ControlMask,           XK_equal,  spawn,          SHCMD("dmenupass") },
 	{ MODKEY|ControlMask,           XK_p,      spawn,          SHCMD("dmenupower") },
 	{ MODKEY,                       XK_Print,  spawn,          SHCMD("maimpick") },
-	{ MODKEY,                       XK_n,      spawn,          SHCMD("dmenuiwd") },
-	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("open-ncmpcpp") },
-	{ MODKEY|ShiftMask,             XK_c,      spawn,          SHCMD("color-picker") },
+	{ MODKEY|ControlMask,           XK_n,      spawn,          SHCMD("dmenuiwd") },
+	{ MODKEY|ControlMask,           XK_m,      spawn,          SHCMD("open-ncmpcpp") },
+	{ MODKEY|ControlMask,           XK_c,      spawn,          SHCMD("color-picker") },
 	{ 0, XF86XK_MonBrightnessUp,    spawn,     SHCMD("light -A 3") },
 	{ 0, XF86XK_MonBrightnessDown,  spawn,     SHCMD("light -U 3") },
 	{ 0, XF86XK_AudioNext,          spawn,     SHCMD("mpc -q next") },
@@ -122,6 +125,8 @@ static const Key keys[] = {
 	{ 0, XF86XK_AudioLowerVolume,   spawn,     SHCMD("amixer -q set Master 5%-; kill -RTMIN $(cat ~/.cache/pidofbar)") },
 	{ 0, XF86XK_AudioMute,          spawn,     SHCMD("amixer -q set Master toggle; kill -RTMIN $(cat ~/.cache/pidofbar)") },
 	// non-multimedia keyboards
+	{ 0,      XK_F11,                    spawn,     SHCMD("ddcutil setvcp 10 - 10 --skip-ddc-checks --bus 3") },
+	{ 0,      XK_F12,                    spawn,     SHCMD("ddcutil setvcp 10 + 10 --skip-ddc-checks --bus 3") },
 	{ 0,      XK_End,                    spawn,     SHCMD("mpc -q next") },
 	{ 0,      XK_Home,                   spawn,     SHCMD("mpc -q prev") },
 	{ MODKEY, XK_End,                    spawn,     SHCMD("mpc -q seek +5%") },
