@@ -48,13 +48,14 @@ static const Rule rules[] = {
 	{   "Zathura",          NULL,     NULL,  	        1   << 4,    0,          -1,     0  },
 	{   "thunderbird",      NULL,     NULL,  	        1   << 6,    0,          -1,     0  },
 	{   "qBittorrent",      NULL,     NULL,  	        1   << 7,    1,          -1,     0  },
-	{   "Clockify",         NULL,     NULL,				0,           1,          -1,     0  },
-	{   "oblivion-desktop", NULL,     NULL,				0,           1,          -1,     0  },
+	{   "Clockify",         NULL,     NULL,			       0,    1,          -1,     0  },
+	{   "oblivion-desktop", NULL,     NULL,			       0,    1,          -1,     0  },
 	{   "obsidian",         NULL,     NULL,  	        1   << 8,    0,          -1,     0  },
-	{   NULL,               NULL,     "Windscribe",		0,           1,          -1,     0  },
-	{   NULL,               NULL,     "Steam",  	    1   << 2,    0,          -1,     0  },
-	{   NULL,               NULL,     "ncmpcpp",        1   << 5,    1,          -1,     0  },
-	{   NULL,               NULL,     "scratchpad",     0,           1,          -1,    's' },
+	{   "floating",         NULL,     NULL,  	               0,    1,          -1,     0  },
+	{   NULL,               NULL,     "Windscribe",		       0,    1,          -1,     0  },
+	{   NULL,               NULL,     "Steam",  	        1   << 2,    0,          -1,     0  },
+	{   NULL,               NULL,     "ncmpcpp",            1   << 5,    1,          -1,     0  },
+	{   NULL,               NULL,     "scratchpad",                0,    1,          -1,    's' },
 };
 
 /* layout(s) */
