@@ -92,7 +92,7 @@ static const char *scratchpadcmd[] = {"s", TERM, "-t", "scratchpad", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_d,      spawn,          SHCMD("j4-dmenu-desktop --dmenu='dmenu -l 15 -c -bw 2 -i' --usage-log=$XDG_CACHE_HOME/j4_usage_log --term-mode custom --term 'st -c floating -e {cmdline@}'") },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_u,      togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
