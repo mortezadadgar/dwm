@@ -32,7 +32,6 @@ static char *colors[][3] = {
 };
 
 static const char *const autostart[] = {
-	"dwmbar", NULL,
 	"/home/morteza/.config/dwm/autostart.sh", NULL,
 	NULL /* terminate */
 };
