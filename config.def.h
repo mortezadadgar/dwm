@@ -63,6 +63,7 @@ static const Rule rules[] = {
 	{   NULL,                           NULL,     "Steam",  	    1   << 2,    0,          -1,     0  },
 	{   NULL,                           NULL,     "ncmpcpp",        1   << 5,    1,          -1,     0  },
 	{   NULL,                           NULL,     "scratchpad",     0,           1,          -1,    's' },
+	{   "Notesnook",                    NULL,     NULL,             0,           1,          -1,    'n' },
 };
 
 /* layout(s) */
@@ -96,12 +97,14 @@ static const char *termcmd[]  = { TERM, NULL };
 
 /*First arg only serves to match against key in rules*/
 static const char *scratchpadcmd[] = {"s", TERM, "-t", "scratchpad", NULL};
+static const char *notesnookcmd[] = {"n", "notesnook", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          SHCMD("j4-dmenu-desktop --dmenu='dmenu -l 15 -c -bw 2 -i' --usage-log=$XDG_CACHE_HOME/j4_usage_log --term-mode custom --term 'st -c floating -e {cmdline@}'") },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_u,      togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY,                       XK_n,      togglescratch,  {.v = notesnookcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
